@@ -23,9 +23,15 @@ app.use(function (req, res, next) {
 // Profile routes
 app.use("/api/v1/profile", require("./routes/profile"));
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// Handle production
+if (process.env.NODE_ENV === "production") {
+  // set static folder
+  app.use(express.static(__dirname + "/public/"));
+  // handle SPA
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
+}
 
 // process is a node.js object
 const port = process.env.PORT || 8000;
