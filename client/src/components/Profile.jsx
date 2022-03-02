@@ -20,7 +20,7 @@ const Profile = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5555/api/v1/profile/${url.platform}/${url.gamertag}`
+          `/api/v1/profile/${url.platform}/${url.gamertag}`
         );
         setProfileData(response.data.data);
       } catch (err) {
