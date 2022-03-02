@@ -1,0 +1,11 @@
+#header-logo {
+  width: 200px;
+}
+
+/* only smaller screens places the image in the center */
+@media (max-width: 700px) {
+  img {
+    display: block;
+    margin: auto;
+  }
+}
