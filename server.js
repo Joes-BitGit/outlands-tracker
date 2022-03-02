@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
   // set static folder
   app.use(express.static(__dirname + "/public/"));
   // handle SPA
-  app.get("/*", function (req, res) {
+  app.get(/.*/, function (req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 }
