@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='../public/' react-scripts build",
+    "build": "BUILD_PATH='../public' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,5 +38,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://cryptic-anchorage-55953.herokuapp.com/"
+  "engines": {
+    "node": ">=17.0.0"
+  },
+  "proxy": "https://cryptic-anchorage-55953.herokuapp.com"
 }
