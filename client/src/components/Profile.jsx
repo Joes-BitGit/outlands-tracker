@@ -2,8 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+
 import "./Profile.css";
+import PlayerFinder from "../apis/PlayerFinder";
 
 const Profile = () => {
   const [isError, setIsError] = useState(null);
@@ -19,12 +20,14 @@ const Profile = () => {
       setIsError(false);
       setIsLoading(true);
       try {
-        const response = await axios.get(
-          `/api/v1/profile/${url.platform}/${url.gamertag}`
+        const response = await PlayerFinder.get(
+          `/${url.platform}/${url.gamertag}`
         );
+        console.log(response.data.data);
         setProfileData(response.data.data);
       } catch (err) {
-        setIsError(err.response.data.message);
+        console.log(err.response);
+        // setIsError(err.response.data.message);
         console.error(err.response, "error occured in the axios useeffect");
       }
       setIsLoading(false);
