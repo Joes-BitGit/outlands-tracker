@@ -40,6 +40,5 @@
   },
   "engines": {
     "node": ">=17.0.0"
-  },
-  "proxy": "https://cryptic-anchorage-55953.herokuapp.com"
+  }
 }
