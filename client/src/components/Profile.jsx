@@ -20,7 +20,6 @@ const Profile = () => {
       setIsError(false);
       setIsLoading(true);
       try {
-        console.log("enters the try properly");
         const response = await PlayerFinder.get(
           `/${url.platform}/${url.gamertag}`
         );

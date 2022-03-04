@@ -12,6 +12,7 @@ router.get("/:platform/:gamertag", async (req, res) => {
     };
 
     const { platform, gamertag } = req.params;
+    console.log("server profile trying", platform, gamertag);
     // node fetch to mnake a request to the 3rd party api
     const response = await fetch(
       `${process.env.TRACKER_API_URL}/${platform}/${gamertag}`,
@@ -20,6 +21,7 @@ router.get("/:platform/:gamertag", async (req, res) => {
         headers,
       }
     );
+    console.log("response here: ", resopnse);
     const data = await response.json();
 
     // check for errors from the api
