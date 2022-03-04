@@ -20,18 +20,21 @@ const Profile = () => {
       setIsError(false);
       setIsLoading(true);
       try {
+        console.log("enters the try properly");
         const response = await PlayerFinder.get(
           `/${url.platform}/${url.gamertag}`
         );
         console.log(response.data.data);
         setProfileData(response.data.data);
       } catch (err) {
+        console.log("tried to catch error");
         console.log(err.response);
         // setIsError(err.response.data.message);
         console.error(err.response, "error occured in the axios useeffect");
       }
       setIsLoading(false);
     };
+    console.log("do we reach here");
     fetchPlayerData();
   }, []);
 
