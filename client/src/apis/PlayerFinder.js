@@ -8,7 +8,7 @@ import axios from "axios";
 
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "/api/v1/profile"
+    ? "https://cryptic-anchorage-55953.herokuapp.com/api/v1/profile"
     : "http://localhost:5555/api/v1/profile";
 
 export default axios.create({
