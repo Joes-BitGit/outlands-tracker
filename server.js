@@ -11,14 +11,15 @@ const app = express();
 //Dev logging
 if (process.env.NODE_ENV === "DEVELOPMENT") app.use(morgan("dev"));
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+// CORS Heading
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // Profile routes
 app.use("/api/v1/profile", require("./routes/profile"));
