@@ -15,7 +15,7 @@ const Profile = () => {
   let url = useParams();
 
   useEffect(() => {
-    document.body.className = "body-bg-image";
+    document.body.className = "body-bg-no-image";
     const fetchPlayerData = async () => {
       setIsError(false);
       setIsLoading(true);

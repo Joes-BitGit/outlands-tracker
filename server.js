@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const path = require("path");
 const res = require("express/lib/response");
 
 // Load env
@@ -27,7 +28,7 @@ app.use("/api/v1/profile", require("./routes/profile"));
 // Handle production
 if (process.env.NODE_ENV === "production") {
   // set static folder
-  app.use(express.static("public"));
+  app.use(express.static(path.join(__dirname, "public")));
   // handle SPA
   app.get(/.*/, function (req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
