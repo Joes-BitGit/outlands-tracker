@@ -6,15 +6,14 @@ const fetch = require("node-fetch");
 router.get("/:platform/:gamertag", async (req, res) => {
   // console.log(req.params.platform, req.params.gamertag);
   // res.send("Hello");
-  console.log("route gets called first");
   try {
     const headers = {
       "TRN-Api-Key": process.env.TRACKER_API_KEY,
     };
 
     const { platform, gamertag } = req.params;
-    console.log("server profile trying", platform, gamertag);
-    // node fetch to mnake a request to the 3rd party api
+
+    // node fetch to make a request to the 3rd party api
     const response = await fetch(
       `${process.env.TRACKER_API_URL}/${platform}/${gamertag}`,
       {
@@ -22,7 +21,6 @@ router.get("/:platform/:gamertag", async (req, res) => {
         headers,
       }
     );
-    console.log("response here: ", resopnse);
     const data = await response.json();
 
     // check for errors from the api
