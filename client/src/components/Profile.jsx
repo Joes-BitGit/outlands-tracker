@@ -21,7 +21,7 @@ const Profile = () => {
       setIsLoading(true);
       try {
         const response = await PlayerFinder.get(
-          `/${url.platform}/${url.gamertag}`
+          `api/v1/profile/${url.platform}/${url.gamertag}`
         );
         console.log(response.data.data);
         setProfileData(response.data.data);
@@ -33,7 +33,6 @@ const Profile = () => {
       }
       setIsLoading(false);
     };
-    console.log("do we reach here");
     fetchPlayerData();
   }, []);
 
