@@ -7,7 +7,7 @@ import axios from "axios";
 // else baseURL = 'http://localhost:5555/api/v1/profile'
 
 const baseURL =
-  process.env.NODE_ENV === "production" ? "/" : "http://localhost:5555/";
+  process.env.NODE_ENV === "production" ? "/" : "http://localhost:5000/";
 
 export default axios.create({
   baseURL,
